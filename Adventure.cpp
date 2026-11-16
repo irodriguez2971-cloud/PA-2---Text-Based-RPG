@@ -304,7 +304,7 @@ void Adventure::printStats() const {
 
 // TODO 15: print every ending in the story, one per line.
 void Adventure::printSpoilers() const {
-    std::cout << "Spoiler guide " << std::endl;
+    std::cout << "Spoiler guide" << std::endl;
 
     printEndings(tree_.getRoot(), "");
 }

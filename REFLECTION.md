@@ -66,6 +66,12 @@ deleted first, the program would lose access to the child pointers, causing memo
 4. Show the path greedy took and the path optimal took on your story, with the loot for each.
    Explain why greedy lost. If greedy did not lose, change your story until it does, and explain
    what you changed.
+
+   After changing the Sue Sylvester scene LOOT from 0 to 10, the greedy one took path 2-1-1-1, collected 25 loot, 
+and died. It chose this path because Sue's scene had the largest immediate loot. However, the HP change of -12 caused 
+LeBron's HP to fall below zero. The optimal one took path 1-1-1-1-1, collected 22 loot, and reached an ending. Greedy 
+lost because it only considers the next choice, while optimal considers whether the entire path survives.
+
 5. bestLoot tries every path, yet it runs in O(n) time. Explain why it is not exponential, using
    what you know about paths and leaves in a tree.
 
