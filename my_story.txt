@@ -1,6 +1,138 @@
-START_HP 10
-SCENE Replace this file with your own story.
+START_HP 20
+SCENE LeBron arrives at El Dorado High School, ready to become the greatest basketball and performer in the city.
 HP 0
 LOOT 0
 ITEM none
-CHOICES 0
+CHOICES 3
+LABEL Audition for the Glee Club
+SCENE The choir room is packed with students waiting to hear LeBron sing.
+HP -1
+LOOT 2
+ITEM Golden Microphone
+CHOICES 2
+LABEL Sing a powerful solo
+    SCENE LeBron sings so well that the entire room starts dancing.
+    HP 0
+    LOOT 4
+    ITEM Music sheet
+    CHOICES 2
+    LABEL Record the song downtown
+        SCENE LeBron records a hit song while his basketball friends support him.
+        HP -2
+        LOOT 5
+        ITEM Studio Pass
+        CHOICES 2
+        LABEL Perform on the rooftop
+            SCENE LeBron performs under the city lights and becomes a legend.
+            HP 0
+            LOOT 8
+            ITEM Championship Jacket
+            CHOICES 1
+            LABEL Sing the final chorus
+                SCENE LeBron sings one final chorus, and the entire city celebrates with him.
+                HP 0
+                LOOT 3
+                ITEM Stage Lights
+                CHOICES 0
+        LABEL Return to the basketball team
+            SCENE LeBron leaves the studio to help his teammates win the final game.
+            HP -3
+            LOOT 7
+            ITEM Trophy
+            CHOICES 0
+        LABEL Perform at the school pep rally
+            SCENE The crowd loves the performance, and the team gains confidence.
+            HP 0
+            LOOT 5
+            ITEM Pep Rally Ticket
+            CHOICES 0
+        LABEL Challenge the rival basketball player
+            SCENE LeBron challenges the school rival to a basketball battle in front of everyone.
+            HP -3
+            LOOT 4
+            ITEM Basketball Shoes
+            CHOICES 1
+            LABEL Use a hidden team pass
+                SCENE LeBron uses a perfect hidden pass and proves that teamwork beats selfish talent after being inspired by 'Kuroko no Basket'.
+                HP -1
+                LOOT 5
+                ITEM Team Wristband
+                CHOICES 2
+                LABEL Trust the whole team
+                    SCENE LeBron trusts his teammates, wins the championship, and proves that teamwork matters.
+                    HP 0
+                    LOOT 3
+                    ITEM none
+                    CHOICES 0
+                LABEL Take the final shot alone
+                    SCENE LeBron ignores his teammates and takes the final shot by himself.
+                    HP -4
+                    LOOT 6
+                    ITEM Rival Jersey
+                    CHOICES 0
+        LABEL Find GTA 6 on the street
+            SCENE LeBron finds an unreleased copy of GTA 6 lying on the sidewalk.
+            HP 0
+            LOOT 5
+            ITEM GTA 6 Copy
+            CHOICES 2
+            LABEL Play it and become CyberLeaks
+                SCENE LeBron plays the game, records secret footage, and becomes famous on TikTok.
+                HP -2
+                LOOT 4
+                ITEM Viral Phone
+                CHOICES 1
+                LABEL Post the leaked footage
+                    SCENE Rockstar Games tracks LeBron down and catches him for leaking GTA 6.
+                    HP -8
+                    LOOT 6
+                    ITEM Legal Notice
+                    CHOICES 2
+                    LABEL Ask Sue Sylvester for help
+                        SCENE Sue Sylvester represents LeBron, insults everyone in court, and makes the situation much worse.
+                        HP -12
+                        LOOT 0
+                        ITEM none
+                        CHOICES 0
+                    LABEL Tell the truth and apologize
+                        SCENE LeBron apologizes, removes the footage, and earns a second chance.
+                        HP 2
+                        LOOT 7
+                        ITEM Second Chance
+                        CHOICES 0
+                    LABEL Give the game to the police
+                        SCENE The police thank Lebron, but he never gets to play the game.
+                        HP 0
+                        LOOT 1
+                        ITEM Police Badge
+                        CHOICES 0
+                LABEL Train alone all night
+                    SCENE The mysterious coach challenges LeBron to train alone until sunrise.
+                    HP -4
+                    LOOT 3
+                    ITEM Coach's Whistle
+                    CHOICES 2
+                    LABEL Keep training through the pain
+                        SCENE LeBron ignores his body and practices impossible shots until his legs shake.
+                        HP -8
+                        LOOT 5
+                        ITEM Training Shoes
+                        CHOICES 2
+                        LABEL Play in the championship
+                            SCENE LeBron survives the training and leads El Dorado High School to the championship.
+                            HP 0
+                            LOOT 10
+                            ITEM Championship Trophy
+                            CHOICES 0
+                        LABEL Ignore the injury
+                            SCENE LeBron collapses during practice and his season is over.
+                            HP -10
+                            LOOT 1
+                            ITEM none
+                            CHOICES 0
+                        LABEL Rest before the big game
+                            SCENE LeBron rests, recovers, and learns that strength also means knowing when to rest.
+                            HP 5
+                            LOOT 4
+                            ITEM Recovery Band
+                            CHOICES 0
