@@ -68,7 +68,7 @@ bool Adventure::load(const std::string& fileName) {
     std::ifstream in(fileName);
 
     if (!in.is_open()) {
-        std::cout << "Error: could not open " << fileName << std::endl;
+        std::cout << "Error: could not open file " << fileName << std::endl;
         return false;
     }
 
@@ -130,10 +130,6 @@ Scene<Moment>* Adventure::readScene(std::ifstream& in, const std::string& label)
         return nullptr;
     }
 
-    if (!readField(in, "CHOICES", choicesText)) {
-        return nullptr;
-    }
-
     int hpChange;
     int loot;
     int numChoices;
@@ -143,12 +139,12 @@ Scene<Moment>* Adventure::readScene(std::ifstream& in, const std::string& label)
         loot = std::stoi(lootText);
         numChoices = std::stoi(choicesText);
     }catch (const std::exception&) {
-        std::cout << "Error: invalid number in scence \""
+        std::cout << "Error: invalid number in scene \""
         << text << "\"." << std::endl;
         return nullptr;
     }
 
-    if (numChoices <= 0 || numChoices > Scene<Moment> :: MAX_CHOICES) {
+    if (numChoices < 0 || numChoices > Scene<Moment>::MAX_CHOICES) {
         std::cout << "Error: scence \"" << text << "\" has " << numChoices << " choices. The limit is 3." << std::endl;
         return nullptr;
     }
@@ -162,7 +158,7 @@ Scene<Moment>* Adventure::readScene(std::ifstream& in, const std::string& label)
     for (int i = 0; i < numChoices; i++) {
         std::string childLabel;
 
-        if (!readField(in, "CHILD", childLabel)) {
+        if (!readField(in, "LABEL", childLabel)) {
             delete scene;
             return nullptr;
         }
@@ -192,10 +188,6 @@ Scene<Moment>* Adventure::readScene(std::ifstream& in, const std::string& label)
 int Adventure::askChoice(int numChoices) {
     while (true) {
         std::cout<<"Your choice: ";
-
-        std::string line;
-
-        if (!std::cout << "Your choice: ");
 
         std::string line;
 
@@ -265,12 +257,12 @@ void Adventure::play() {
         std::cout << "HP: " << hp << "  Loot: " << loot << std::endl;
 
         if (hp<=0) {
-            std::cout <<"Your HP hit 0. Game Over." << std::endl;
+            std::cout <<"Your HP hit 0. GAME OVER." << std::endl;
             break;
         }
 
         if (scene->isEnding()) {
-            std::cout << "You already ended." << std::endl;
+            std::cout << "THE END." << std::endl;
             break;
         }
 
@@ -289,7 +281,7 @@ void Adventure::play() {
         scene = scene->getChoice(choice-1);
     }
 
-    std::cout << "Final HP: " << hp << "  Final Loot: " << loot << std::endl;
+    std::cout << "Final HP: " << hp << "  Final loot: " << loot << std::endl;
 
     std::cout << "Inventory (" << bag.size() << " items):" << std::endl;
 
@@ -312,7 +304,7 @@ void Adventure::printStats() const {
 
 // TODO 15: print every ending in the story, one per line.
 void Adventure::printSpoilers() const {
-    std::cout << "Spoler guide " << std::endl;
+    std::cout << "Spoiler guide " << std::endl;
 
     printEndings(tree_.getRoot(), "");
 }
@@ -389,14 +381,14 @@ void Adventure::greedyRun() const {
         scene = scene->getChoice(bestChoice);
     }
 
-    std::cout << "Greedy Advisor" << std::endl;
+    std::cout << "Greedy advisor" << std::endl;
     std::cout << "  Path: " << path << std::endl;
     std::cout << "  Loot: " << loot << std::endl;
 
     if (hp <= 0) {
         std::cout << "  Result: died" << std::endl;
     }else {
-        std::cout << "  Result: reached an ending "  << std::endl;
+        std::cout << "  Result: reached an ending" << std::endl;
     }
 }
 
@@ -437,7 +429,7 @@ int Adventure::bestLoot(Scene<Moment>* scene, int hp, const std::string& path, s
 
                 if (totalLoot > best) {
                     best = totalLoot;
-                    chosenPath = path;
+                    chosenPath = childPath;
                 }
         }
     }
@@ -471,7 +463,7 @@ void Adventure::optimalRun() const {
         return;
     }
 
-    std::cout << "Path: " << bestPath << std::endl;
-    std::cout << "Loot: " << loot << std::endl;
-    std::cout << " Result:reached an ending" << std::endl;
+    std::cout << "  Path: " << bestPath << std::endl;
+    std::cout << "  Loot: " << loot << std::endl;
+    std::cout << "  Result: reached an ending" << std::endl;
 }
