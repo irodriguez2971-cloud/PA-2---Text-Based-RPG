@@ -22,15 +22,14 @@ public:
         // A scene with numChoices_ choices needs exactly numChoices_ slots.
         // An ending (0 choices) needs no slots at all.
         // Every slot must start out empty.
-        Scene(*T data, int numChoices): data_(data), choices_(nullptr),numChoices_(numChoices) {
-            if (numChoices_ > 0) {
-                choices_ = new Scene<T>*[numChoices_];
+        if (numChoices_ > 0) {
+            choices_ = new Scene<T>*[numChoices_];
 
-                for (int i = 0; i < numChoices_; i++) {
-                    choices_[i] = nullptr;
-                }
+            for (int i = 0; i < numChoices_; i++) {
+                choices_[i] = nullptr;
             }
         }
+
     }
 
     ~Scene() {

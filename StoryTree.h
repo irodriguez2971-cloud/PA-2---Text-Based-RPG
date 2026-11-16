@@ -21,8 +21,8 @@ private:
 
         int total = 1;
 
-        for (int i = 0; i<scene->getNumberOfChildren(); i++) {
-            total+= countScenes(scene->getChild(i));
+        for (int i = 0; i<scene->getNumChoices(); i++) {
+            total+= countScenes(scene->getChoice(i));
         }
 
         return total;
@@ -40,8 +40,8 @@ private:
 
         int total = 0;
 
-        for (int i = 0; i<scene->getNumberOfChildren(); i++) {
-            total+= countEndings(scene->getChild(i));
+        for (int i = 0; i<scene->getNumChoices(); i++) {
+            total+= countEndings(scene->getChoice(i));
         }
 
         return total;
